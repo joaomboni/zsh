@@ -1,6 +1,6 @@
 # ~/.config/zsh/.zshenv
 
-# Carrega arquivos adicionais
+# Bootstrap / shared environment
 export ZDOTDIR="$HOME/.config/zsh"
 
 # ---------- XDG base directories ----------
