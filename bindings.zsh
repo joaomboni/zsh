@@ -33,4 +33,7 @@ zvm_after_init() {
 
   # Ctrl+G -> fuzzy git commit browser
   bindkey '^G' _fzf_git_log
+
+  # Ctrl+X -> fuzzy browser for unstaged / untracked changes
+  bindkey '^X' _fzf_git_status
 }
