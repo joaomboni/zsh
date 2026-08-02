@@ -108,13 +108,37 @@ zplugin-update
 | `Ctrl+R` | Fuzzy history search (fzf) |
 | `Ctrl+T` | Fuzzy file search including hidden files (fzf + fd) |
 | `Ctrl+F` | Fuzzy file search excluding hidden files (fzf + fd) |
-| `Ctrl+G` | Fuzzy git commit browser — list commits, preview message and diff (fzf + git) |
-| `Ctrl+X` | Fuzzy browser for unstaged / untracked changes — preview diff (fzf + git) |
-| `Ctrl+B` | Fuzzy git branch browser — last update, author, subject; preview creation approx + last commit (fzf + git) |
+| `Ctrl+G` | Fuzzy git commit browser (see below) |
+| `Ctrl+X` | Fuzzy git working-tree browser (see below) |
+| `Ctrl+B` | Fuzzy git branch browser (see below) |
 | `Ctrl+→` | Move forward one word |
 | `Ctrl+←` | Move backward one word |
 | `↑` / `↓` | History search by prefix |
 | `Ctrl+\` | Toggle autosuggestions |
+
+## Git helpers (fzf)
+
+Interactive git browsers. List on the left, preview on the right. Press Enter to insert the selected hash, file path, or branch name into the command line. Works only inside a git repository.
+
+### `Ctrl+G` — Commits
+
+- **List:** `git log --oneline` (recent commits)
+- **Preview:** commit message and full diff (`git show --stat -p`)
+- **Enter:** inserts the short commit hash
+
+### `Ctrl+X` — Unstaged / untracked changes
+
+- **List:** `git status --short` (working tree)
+- **Preview:** unstaged diff for modified files, or file contents for untracked files
+- **Enter:** inserts the file path
+
+### `Ctrl+B` — Branches
+
+- **List:** local and remote branches with **last update date**, **author**, and **last commit subject**
+- **Preview:** last update, who updated it, approximate creation date (from reflog, when available), and the last commit message + diff
+- **Enter:** inserts the branch name
+
+Note: git does not store a reliable “branch created at” timestamp. The creation line in the preview is an approximation from the local reflog and may be missing on old or remote-only branches.
 
 ## Starship Config
 
