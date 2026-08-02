@@ -30,4 +30,7 @@ zvm_after_init() {
   # Up/Down -> history search by substring (^[[A/^[[B are up/down arrow escape codes)
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
+
+  # Ctrl+G -> fuzzy git commit browser
+  bindkey '^G' _fzf_git_log
 }

@@ -29,3 +29,22 @@ _fzf_file_no_hidden() {
   zle reset-prompt
 }
 zle -N _fzf_file_no_hidden
+
+# Ctrl+G: fuzzy git commit browser
+_fzf_git_log() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    zle -M "Not a git repository"
+    return 1
+  }
+  local commit
+  commit=$(
+    git log --oneline --color=always --decorate -n 500 |
+      fzf --ansi --no-sort --reverse \
+        --preview 'git show --color=always --stat -p {1}' \
+        --preview-window=right:65%:wrap:border-left
+  ) || return
+  # Insert the short hash into the command line (optional)
+  LBUFFER+="${commit%% *}"
+  zle reset-prompt
+}
+zle -N _fzf_git_log
