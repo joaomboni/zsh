@@ -48,7 +48,14 @@ mkdir -p "$HOME/.local/state/zsh"
 mkdir -p "$HOME/.config/lf" && touch "$HOME/.config/lf/icons" # <--- Evita o erro do cat!
 
 echo "Atualizando SHELL padrão para o zsh.."
-chsh -s $(which zsh)
+ZSH_PATH="$(command -v zsh)"
+if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+    echo "Executando: chsh -s $ZSH_PATH"
+    echo "Pode ser necessário digitar sua senha."
+    chsh -s "$ZSH_PATH" < /dev/tty
+else
+    echo "Zsh já é o shell padrão."
+fi
 
 echo "Corrigindo o icone do Fedora no starship.toml..."
 if [[ -f "$STARSHIP_FILE" ]]; then
