@@ -57,21 +57,23 @@ else
     echo "Zsh já é o shell padrão."
 fi
 
-echo "Corrigindo o icone do Fedora no starship.toml..."
-STARSHIP_FILE="$HOME/.config/zsh/starship.toml"
-if [[ -f "$STARSHIP_FILE" ]]; then
-    python3 << 'PY'
-from pathlib import Path
+# echo "Corrigindo o icone do Fedora no starship.toml..."
+# STARSHIP_FILE="$HOME/.config/zsh/starship.toml"
+# if [[ -f "$STARSHIP_FILE" ]]; then
+#     python3 << 'PY'
+# from pathlib import Path
 
-path = Path.home() / ".config/zsh/starship.toml"
-text = path.read_text(encoding="utf-8")
+# path = Path.home() / ".config/zsh/starship.toml"
+# text = path.read_text(encoding="utf-8")
 
-# substitui a string literal "uf30a" pelo caractere Unicode real
-text = text.replace("uf30a", "\uf30a")
+# # substitui a string literal "uf30a" pelo caractere Unicode real
+# text = text.replace("uf30a", "\uf30a")
 
-path.write_text(text, encoding="utf-8")
-print("Icone do Fedora corrigido.")
-PY
-fi
+# path.write_text(text, encoding="utf-8")
+# print("Icone do Fedora corrigido.")
+# PY
+# else
+#     echo "starship.toml não encontrado em STARSHIP_FILE"
+# fi
 
 echo " Setup concluido com sucesso! Reinicie a sessão do terminal."
