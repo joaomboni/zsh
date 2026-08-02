@@ -58,6 +58,7 @@ else
 fi
 
 echo "Corrigindo o icone do Fedora no starship.toml..."
+STARTSHIP_FILE="$HOME/.config/zsh/starship.toml"
 if [[ -f "$STARSHIP_FILE" ]]; then
     python3 << 'PY'
 from pathlib import Path
