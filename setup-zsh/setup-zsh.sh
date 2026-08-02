@@ -7,7 +7,7 @@
 set -euo pipefail
 
 echo "Instalando dependencias..."
-sudo dnf install zsh vim-X11  eza bat fd-find fzf ripgrep zoxide
+sudo dnf install -y zsh vim-X11  eza bat fd-find fzf ripgrep zoxide
 
 echo "Instalando o starship..."
 curl -sS https://starship.rs/install.sh | sh -s -- -y
@@ -35,7 +35,7 @@ echo "Download do repositorio.."
 if [ -d "$HOME/.config/zsh" ]; then
     echo "A pasta ~/.config/zshenv já existe. Pulando clone."
 else
-    git clone https://github.com/radleylewis/zsh "$HOME/.config/zsh"
+    git clone https://github.com/joaomboni/zsh "$HOME/.config/zsh"
 fi
 
 echo "Criando links simbolicos na Home..."
