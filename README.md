@@ -31,7 +31,7 @@ brew install zsh neovim eza bat fd fzf zoxide starship ripgrep
 ### Setup Fedora
 Instalação rapida via shell
 ```sh
-curl -sL https://raw.githubusercontent.com/joaomboni/zsh/main/setup-zsh/setup-zsh.sh | bash
+curl -fsSL https://raw.githubusercontent.com/joaomboni/zsh/main/setup-zsh/setup-zsh.sh | bash
 ```
 
 ## Setup
