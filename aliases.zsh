@@ -44,7 +44,9 @@ lf() { # zsh follow lf navigation
 # Editor
 # =========================================================
 
-alias vim='nvim'
+alias vim='vim'
+alias vi="vim"
+alias v="vim"
 
 # =========================================================
 # Git

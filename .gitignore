@@ -16,3 +16,6 @@ TUTORIAL.md
 
 # installed plugins
 ./plugins/
+
+# vim cache
+*.un~

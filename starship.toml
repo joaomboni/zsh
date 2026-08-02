@@ -14,6 +14,7 @@ Artix   = "󰣇"
 Arch    = "󰣇"
 CachyOS = "󰣇"
 Macos   = ""
+Fedora  = ""
 
 [directory]
 format            = "[$path](cyan) "
