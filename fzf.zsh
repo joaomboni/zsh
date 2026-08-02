@@ -82,3 +82,36 @@ _fzf_git_status() {
   zle reset-prompt
 }
 zle -N _fzf_git_status
+
+# Ctrl+B: fuzzy git branch browser (last update, author, subject; creation approx in preview)
+_fzf_git_branches() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    zle -M "Not a git repository"
+    return 1
+  }
+
+  local selection branch
+  selection=$(
+    git for-each-ref --sort=-committerdate refs/heads/ refs/remotes/ \
+      --format=$'%(refname:short)\t%(committerdate:short)\t%(authorname)\t%(subject)' |
+      grep -v '/HEAD$' |
+      column -t -s $'\t' |
+      fzf --ansi --no-sort --reverse \
+        --preview '
+          b=$(echo {} | awk "{print \$1}")
+          echo "Branch: $b"
+          echo "Last update: $(git log -1 --format="%ci (%cr)" "$b" 2>/dev/null)"
+          echo "Updated by:  $(git log -1 --format="%an <%ae>" "$b" 2>/dev/null)"
+          echo "Created ~:   $(git reflog show --date=short "$b" 2>/dev/null | tail -1)"
+          echo
+          echo "Last commit:"
+          git log -1 --color=always --stat -p "$b" 2>/dev/null
+        ' \
+        --preview-window=right:65%:wrap:border-left
+  ) || return
+
+  branch="${selection%% *}"
+  LBUFFER+="$branch"
+  zle reset-prompt
+}
+zle -N _fzf_git_branches

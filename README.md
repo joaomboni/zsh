@@ -109,6 +109,8 @@ zplugin-update
 | `Ctrl+T` | Fuzzy file search including hidden files (fzf + fd) |
 | `Ctrl+F` | Fuzzy file search excluding hidden files (fzf + fd) |
 | `Ctrl+G` | Fuzzy git commit browser — list commits, preview message and diff (fzf + git) |
+| `Ctrl+X` | Fuzzy browser for unstaged / untracked changes — preview diff (fzf + git) |
+| `Ctrl+B` | Fuzzy git branch browser — last update, author, subject; preview creation approx + last commit (fzf + git) |
 | `Ctrl+→` | Move forward one word |
 | `Ctrl+←` | Move backward one word |
 | `↑` / `↓` | History search by prefix |

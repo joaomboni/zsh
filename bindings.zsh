@@ -36,4 +36,7 @@ zvm_after_init() {
 
   # Ctrl+X -> fuzzy browser for unstaged / untracked changes
   bindkey '^X' _fzf_git_status
+
+  # Ctrl+B -> fuzzy git branch browser
+  bindkey '^B' _fzf_git_branches
 }
