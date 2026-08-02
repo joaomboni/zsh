@@ -29,20 +29,20 @@ brew install zsh neovim eza bat fd fzf zoxide starship ripgrep
 ```
 
 ### Setup Fedora
-Instalação rapida via shell
+Quick install via shell
 ```sh
 curl -fsSL https://raw.githubusercontent.com/joaomboni/zsh/main/setup-zsh/setup-zsh.sh | bash
 ```
 
-## Setup
+## Setup Manually
 
 **1. Clone the repo**
 
 ```sh
-git clone https://github.com/radleylewis/zsh ~/.config/zsh
+git clone https://github.com/joaomboni/zsh ~/.config/zsh
 ```
 
-**2. Point zsh at the config directory**
+**2. Point zsh at the config directory - others**
 
 Add the following to `/etc/zsh/zshenv`:
 
@@ -56,6 +56,15 @@ if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
 then
     export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 fi
+```
+
+**2.1. Point zsh at the config directory - Fedora**
+Add the following to `~/.zshenv`:
+```sh
+cat > ~/.zshenv << 'EOF'
+export ZDOTDIR="$HOME/.config/zsh"
+[[ -f "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"
+EOF
 ```
 
 **3. Set zsh as your default shell**
