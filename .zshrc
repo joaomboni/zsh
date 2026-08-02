@@ -88,6 +88,11 @@ if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
   source /usr/share/doc/fzf/examples/completion.zsh
 fi
 
+# Fedora
+if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
+  source /usr/share/fzf/shell/key-bindings.zsh
+fi
+
 # =========================================================
 # Modular Config Files
 # =========================================================

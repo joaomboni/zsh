@@ -38,8 +38,11 @@ else
     git clone https://github.com/joaomboni/zsh "$HOME/.config/zsh"
 fi
 
-echo "Criando links simbolicos na Home..."
-echo 'export ZDOTDIR="$HOME/.config/zsh"' "$HOME/.zshenv"
+echo "Criando bootstrap ~/.zshenv (ZDOTDIR + source da config)..."
+cat > "$HOME/.zshenv" << 'EOF'
+export ZDOTDIR="$HOME/.config/zsh"
+[[ -f "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"
+EOF
 ln -sf "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 
 echo "Criando diretorios de hitorico e cache..."
