@@ -9,12 +9,13 @@ disabled = false
 format = "[$symbol](#blue) "
 
 [os.symbols]
-Ubuntu  = "󰕈"
-Artix   = "󰣇"
-Arch    = "󰣇"
-CachyOS = "󰣇"
-Macos   = ""
-Fedora  = ""
+Ubuntu  = "󰕈 "
+Artix   = "󰣇 "
+Arch    = "󰣇 "
+CachyOS = "󰣇 "
+Macos   = " "
+Fedora  = " "
+FreeBSD = " "
 
 [directory]
 format            = "[$path](cyan) "
@@ -37,19 +38,19 @@ deleted    = "[✘$count ](bold red)"
 conflicted = "[⚡$count ](bold red)"
 
 [nodejs]
-symbol = ""
+symbol = " "
 format = "[$symbol $version](green) "
 
 [rust]
-symbol = ""
+symbol = " "
 format = "[$symbol $version](red) "
 
 [golang]
-symbol = ""
+symbol = " "
 format = "[$symbol $version](cyan) "
 
 [php]
-symbol = ""
+symbol = " "
 format = "[$symbol $version](purple) "
 
 [character]
