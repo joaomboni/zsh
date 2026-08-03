@@ -42,7 +42,10 @@ _fzf_git_log() {
       fzf --ansi --no-sort --reverse \
         --preview 'git show --color=always --stat -p {1}' \
         --preview-window=right:65%:wrap:border-left
-  ) || return
+  ) ||{
+    zle reset-prompt 
+    return 1
+  }
   # Insert the short hash into the command line (optional)
   LBUFFER+="${commit%% *}"
   zle reset-prompt
@@ -76,7 +79,10 @@ _fzf_git_status() {
           fi
         ' \
         --preview-window=right:65%:wrap:border-left
-  ) || return
+  ) || {
+    zle reset-prompt 
+    return 1
+  }
   file="${selection##* }"   # path is usually the last field in `git status -s`
   LBUFFER+="$file"
   zle reset-prompt
@@ -108,8 +114,10 @@ _fzf_git_branches() {
           git log -1 --color=always --stat -p "$b" 2>/dev/null
         ' \
         --preview-window=right:65%:wrap:border-left
-  ) || return
-
+  ) || {
+    zle reset-prompt
+    return 1
+  }
   branch="${selection%% *}"
   LBUFFER+="git checkout $branch"
   zle reset-prompt
