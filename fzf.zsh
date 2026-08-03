@@ -111,7 +111,7 @@ _fzf_git_branches() {
   ) || return
 
   branch="${selection%% *}"
-  LBUFFER+="$branch"
+  LBUFFER+="git checkout $branch"
   zle reset-prompt
 }
 zle -N _fzf_git_branches
