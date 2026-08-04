@@ -102,7 +102,7 @@ _fzf_git_branches() {
       --format=$'%(refname:short)\t%(committerdate:short)\t%(authorname)\t%(subject)' |
       grep -v '/HEAD$' |
       column -t -s $'\t' |
-      fzf --ansi --no-sort --reverse \
+      fzf --ansi --no-sort --reverse --nth=1 \
         --preview '
           b=$(echo {} | awk "{print \$1}")
           echo "Branch: $b"
